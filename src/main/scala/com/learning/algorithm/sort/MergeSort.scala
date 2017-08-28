@@ -70,9 +70,9 @@ object MergeSort {
 
     // when list is large, 10000 int elements, there will be stack overflow exception
     time = System.currentTimeMillis()
-    val largeList = (1 to 100000).map(x => (Math.random() * 1000 + 1).toInt).toList
+    val largeList = (1 to 10000).map(x => (Math.random() * 1000 + 1).toInt).toList
     println(sortOpt(largeList))
-    println(s"large list time = ${System.currentTimeMillis() - time}ms") // 465ms
+    println(s"large list time = ${System.currentTimeMillis() - time}ms") // 243ms
 
   }
 
