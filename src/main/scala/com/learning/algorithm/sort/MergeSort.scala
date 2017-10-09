@@ -60,6 +60,63 @@ object MergeSort {
     }
   }
 
+  /**
+    * merge sort for generic types
+    */
+  def mergeSort[A: Manifest](xs: Array[A])(implicit ord: Ordering[A]) = {
+    def internalMerge(a: Array[A], i0: Int, m: Int, iN: Int): Unit = {
+      val left = new Array[A](m - i0 + 1)
+      val right = new Array[A](iN - m)
+      var i = i0
+      var j = 0
+      var k = 0
+      while (i <= m) {
+        left(k) = a(i)
+        i += 1
+        k += 1
+      }
+      i = m + 1
+      k = 0
+      while (i <= iN) {
+        right(k) = a(i)
+        i += 1
+        k += 1
+      }
+      i = 0
+      k = i0
+      while (k <= iN && i < left.length && j < right.length) {
+        if (ord.lt(left(i), right(j))) {
+          a(k) = left(i)
+          i += 1
+        } else {
+          a(k) = right(j)
+          j += 1
+        }
+        k += 1
+      }
+      while (k <= iN && i < left.length) {
+        a(k) = left(i)
+        k += 1
+        i += 1
+      }
+      while (k <= iN && j < right.length) {
+        a(k) = right(j)
+        k += 1
+        j += 1
+      }
+    }
+
+    def internalSort(a: Array[A], i0: Int, iN: Int): Unit = {
+      if (iN > i0) {
+        val m = (iN - i0) / 2
+        internalSort(a, i0, m + i0)
+        internalSort(a, i0 + m + 1, iN)
+        internalMerge(a, i0, i0 + m, iN)
+      }
+    }
+    internalSort(xs, 0, xs.length - 1)
+  }
+
 
   def main(args: Array[String]): Unit = {
     // when list is small
@@ -74,6 +131,12 @@ object MergeSort {
     println(sortOpt(largeList))
     println(s"large list time = ${System.currentTimeMillis() - time}ms") // 243ms
 
+    // another merge sort algorithm
+    time = System.currentTimeMillis()
+    val xs = (1 to 100).map(x => (Math.random() * 1000 + 1).toInt).toArray
+    mergeSort(xs)
+    println(xs.mkString(" "))
+    println(s"another algorithm duration: ${System.currentTimeMillis() - time}ms") // 42ms
   }
 
 }
