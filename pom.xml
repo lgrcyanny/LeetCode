@@ -22,7 +22,7 @@
 
     <properties>
         <maven.version>3.3.3</maven.version>
-        <scala.version>2.11.7</scala.version>
+        <scala.version>2.11.8</scala.version>
         <scala.binary.version>2.11</scala.binary.version>
         <java.version>1.8</java.version>
     </properties>
@@ -55,18 +55,14 @@
             <version>3.0.0</version>
             <scope>compile</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest -->
         <dependency>
             <groupId>org.scalatest</groupId>
-            <artifactId>scalatest_${scala.binary.version}</artifactId>
-            <version>3.0.0</version>
+            <artifactId>scalatest_2.11</artifactId>
+            <version>2.2.6</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.scalamock</groupId>
-            <artifactId>scalamock-scalatest-support_2.11</artifactId>
-            <version>3.3.0</version>
-            <scope>test</scope>
-        </dependency>
+
         <dependency>
             <groupId>com.twitter</groupId>
             <artifactId>util-core_2.10</artifactId>
@@ -125,14 +121,9 @@
                 </executions>
                 <configuration>
                     <scalaVersion>${scala.version}</scalaVersion>
-                    <recompileMode>incremental</recompileMode>
-                    <useZincServer>true</useZincServer>
                     <jvmArgs>
-                        <jvmArg>-Xms1024m</jvmArg>
+                        <jvmArg>-Xms512m</jvmArg>
                         <jvmArg>-Xmx1024m</jvmArg>
-                        <jvmArg>-XX:PermSize=64m</jvmArg>
-                        <jvmArg>-XX:MaxPermSize=512m</jvmArg>
-                        <jvmArg>-XX:ReservedCodeCacheSize=512m</jvmArg>
                     </jvmArgs>
                 </configuration>
             </plugin>
