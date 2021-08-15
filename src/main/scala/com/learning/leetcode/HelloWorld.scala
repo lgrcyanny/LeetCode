@@ -5,10 +5,13 @@ package com.learning.leetcode
   */
 object HelloWorld {
 
+  implicit class ToString(a: Int) {
+    def asString(): String = a.toString
+  }
+
   def main(args: Array[String]): Unit = {
-    println("Hello LeetCode")
-    val l = List(1, 2, 3)
-    val r = List(4, 5, 6)
+    val a = 7
+    println(a.asString())
   }
 
 }
