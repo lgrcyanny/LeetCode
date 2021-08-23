@@ -56,6 +56,7 @@ object EditDistance {
         if (s(i - 1) == d(j - 1)) {
           memo(i)(j) = memo(i - 1)(j - 1)
         } else {
+          // delete, insert, update
           memo(i)(j) = Array(memo(i - 1)(j), memo(i)(j - 1), memo(i - 1)(j - 1)).min + 1
         }
       }

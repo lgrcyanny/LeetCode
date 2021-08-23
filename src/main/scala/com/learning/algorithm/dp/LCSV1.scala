@@ -2,7 +2,7 @@ package com.learning.algorithm.dp
 
 import scala.collection.mutable.ArrayBuffer
 
-object LCS {
+object LCSV1 {
 
   def computeLCS(xs: Array[String], ys: Array[String]): Array[String] = {
     // 1. define variables
