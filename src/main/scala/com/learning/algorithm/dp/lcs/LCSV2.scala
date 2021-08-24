@@ -1,4 +1,4 @@
-package com.learning.algorithm.dp
+package com.learning.algorithm.dp.lcs
 
 object LCSV2 {
 
@@ -15,6 +15,7 @@ object LCSV2 {
         Array(recur(m + 1, n), recur(m, n + 1)).max
       }
     }
+
     recur(0, 0)
   }
 
@@ -25,6 +26,7 @@ object LCSV2 {
     for (i <- 0 to m; j <- 0 to n) {
       memo(i)(j) = -1
     }
+
     def recur(m: Int, n: Int): Int = {
       if (m == 0 || n == 0) { // empty string
         0
@@ -41,10 +43,31 @@ object LCSV2 {
         }
       }
     }
+
     recur(m, n)
   }
 
-  def getLCSCountDP(s1: String, s2: String): Int = {
+  def getLCSStr(s1: String, s2: String, lcsCount: Array[Array[Int]]): String = {
+    val m = s1.size
+    val n = s2.size
+    val lcsStr = new StringBuilder
+    var i = m
+    var j = n
+    while (i > 0 && j > 0) {
+      if (s1(i - 1) == s2(j - 1)) {
+        lcsStr.append(s1(i - 1))
+        i = i - 1
+        j = j - 1
+      } else if (lcsCount(i - 1)(j) > lcsCount(i)(j - 1)) {
+        i = i - 1
+      } else {
+        j = j - 1
+      }
+    }
+    lcsStr.toString()
+  }
+
+  def getLCSDP(s1: String, s2: String): String = {
     val m = s1.size
     val n = s2.size
     val memo = Array.ofDim[Int](m + 1, n + 1)
@@ -63,15 +86,17 @@ object LCSV2 {
         }
       }
     }
-    memo(m)(n)
+    val lcsStr = getLCSStr(s1, s2, memo)
+    lcsStr
   }
 
   def main(args: Array[String]): Unit = {
-//    val s1 = "ABCD"
-//    val s2 = "AEBD"
+    //    val s1 = "ABCD"
+    //    val s2 = "AEBD"
     val s1 = "AAACCGTGAGTTATTCGTTCTAGAA"
     val s2 = "CACCCCTAAGGTACCTTTGGTTC"
-    println(s"recur lcs: ${getLCSCountDP(s1, s2)}")
+    val lcs = getLCSDP(s1, s2)
+    println(s"lcs:  ${lcs}, lcs count: ${lcs.size}")
   }
 
 }

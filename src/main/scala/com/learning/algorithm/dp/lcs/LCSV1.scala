@@ -1,4 +1,4 @@
-package com.learning.algorithm.dp
+package com.learning.algorithm.dp.lcs
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -51,7 +51,7 @@ object LCSV1 {
         j = j - 1
       } else if (b(i)(j) == LEFT) (
         j = j - 1
-      ) else if (b(i)(j) == UP) {
+        ) else if (b(i)(j) == UP) {
         i = i - 1
       }
     }
