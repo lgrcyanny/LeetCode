@@ -50,7 +50,7 @@ object SubsetSum {
     val memo = Array.ofDim[Boolean](m, n)
     memo(0)(0) = true // empty subset for zero value
     for (i <- 1 until m) {
-      memo(i)(0) = true // empty subset for zero value
+      memo(i)(0) = true
     }
     for (j <- 1 until n) {
       memo(0)(j) = false

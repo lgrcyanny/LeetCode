@@ -26,7 +26,10 @@ object MinCostPath {
   }
 
   /**
-   * O(n ^ 2)
+   * @param cost
+   * @param m m+1 is cost array row length
+   * @param n n+1 is cost array column
+   * @return min cost length
    */
   def minCostPathDP(cost: Array[Array[Int]], m: Int, n: Int): Int = {
     val memo = Array.ofDim[Int](m + 1, n + 1)
