@@ -20,6 +20,7 @@ object LIS {
       }
       len
     }
+
     val n = arr.length
     val res = for (i <- 1 until n) yield _recur(i)
     res.max
@@ -41,7 +42,7 @@ object LIS {
         maxLen = memo(i)
       }
     }
-//    println(memo.mkString(", "))
+    //    println(memo.mkString(", "))
     maxLen
   }
 
@@ -80,7 +81,7 @@ object LIS {
 
   def main(args: Array[String]): Unit = {
     val arr = Array(1, 3, 6, 7, 9, 4, 10, 5, 6)
-//        val arr = Array(10,9,2,5,3,7,101,18, 1, 2, 4)
+    //        val arr = Array(10,9,2,5,3,7,101,18, 1, 2, 4)
     println(getLISLength(arr))
     println(getLISLengthDP(arr))
     println(getLISLengthOpt(arr))

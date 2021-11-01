@@ -1,4 +1,4 @@
-package com.learning.algorithm.dp2.linear.lis
+package com.learning.algorithm.dp2.linear.maxsub
 
 object MaxProduct {
 
@@ -18,6 +18,7 @@ object MaxProduct {
         (mx, mn)
       }
     }
+
     val res = (0 until nums.size).map { i =>
       val (mx, _) = recur(i)
       mx
@@ -40,9 +41,9 @@ object MaxProduct {
   }
 
   def main(args: Array[String]): Unit = {
-//    val nums = Array(2, 3, -2, 4)
-//    val nums = Array(-3, -1, -1)
-//    val nums = Array(5, 6, -3, 4, -3)
+    //    val nums = Array(2, 3, -2, 4)
+    //    val nums = Array(-3, -1, -1)
+    //    val nums = Array(5, 6, -3, 4, -3)
     val nums = Array(-2, 0, -1)
     println(maxProduct(nums))
     println(maxProductDP(nums))

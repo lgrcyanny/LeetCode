@@ -1,4 +1,4 @@
-package com.learning.algorithm.dp2.linear.lis
+package com.learning.algorithm.dp2.linear.maxsub
 
 object MaxSubArrCir {
 
@@ -15,7 +15,7 @@ object MaxSubArrCir {
       var minSum = nums.min
       var maxEnding = 0
       var minEnding = 0
-      for (i <- 0 until n ) {
+      for (i <- 0 until n) {
         maxEnding = Math.max(maxEnding + nums(i), nums(i))
         minEnding = Math.min(minEnding + nums(i), nums(i))
         maxSum = Math.max(maxSum, maxEnding)

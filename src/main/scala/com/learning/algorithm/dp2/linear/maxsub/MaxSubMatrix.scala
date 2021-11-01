@@ -1,4 +1,4 @@
-package com.learning.algorithm.dp2.linear.lis
+package com.learning.algorithm.dp2.linear.maxsub
 
 object MaxSubMatrix {
 
