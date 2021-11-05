@@ -64,7 +64,7 @@ object LCSV2 {
         j = j - 1
       }
     }
-    lcsStr.toString()
+    lcsStr.toString().reverse
   }
 
   def getLCSDP(s1: String, s2: String): String = {
@@ -91,10 +91,10 @@ object LCSV2 {
   }
 
   def main(args: Array[String]): Unit = {
-    //    val s1 = "ABCD"
-    //    val s2 = "AEBD"
-    val s1 = "AAACCGTGAGTTATTCGTTCTAGAA"
-    val s2 = "CACCCCTAAGGTACCTTTGGTTC"
+        val s1 = "ABCD"
+        val s2 = "AEBD"
+//    val s1 = "AAACCGTGAGTTATTCGTTCTAGAA"
+//    val s2 = "CACCCCTAAGGTACCTTTGGTTC"
     val lcs = getLCSDP(s1, s2)
     println(s"lcs:  ${lcs}, lcs count: ${lcs.size}")
   }
