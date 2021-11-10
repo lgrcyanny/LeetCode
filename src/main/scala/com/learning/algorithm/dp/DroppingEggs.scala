@@ -38,11 +38,11 @@ object DroppingEggs {
         memo(numf)(e) = min + 1
       }
     }
-    memo(numFloors)(numEggs)
+    memo(numFloors)(numEggs) + 1
   }
 
   def main(args: Array[String]): Unit = {
-    println(droppingEggsDP(100, 2))
+    println(droppingEggsDP(14, 3))
   }
 
 }

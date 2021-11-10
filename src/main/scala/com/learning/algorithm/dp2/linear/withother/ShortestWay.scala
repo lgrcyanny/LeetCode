@@ -1,4 +1,4 @@
-package com.learning.algorithm.dp2.linear.other
+package com.learning.algorithm.dp2.linear.withother
 
 object ShortestWay {
 
