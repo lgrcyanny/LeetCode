@@ -1,4 +1,4 @@
-package com.learning.algorithm.dp2.linear.withother
+package com.learning.algorithm.dp2.linear.single.withother
 
 import scala.collection.mutable.ArrayBuffer
 

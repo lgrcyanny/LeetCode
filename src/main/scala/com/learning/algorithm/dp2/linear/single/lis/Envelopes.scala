@@ -1,4 +1,4 @@
-package com.learning.algorithm.dp2.linear.lis
+package com.learning.algorithm.dp2.linear.single.lis
 
 object Envelopes {
   def maxEnvelopes(envelopes: Array[Array[Int]]): Int = {

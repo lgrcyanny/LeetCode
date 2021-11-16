@@ -1,4 +1,4 @@
-package com.learning.algorithm.dp2.linear.fib
+package com.learning.algorithm.dp2.linear.single.fib
 
 import scala.collection.mutable
 

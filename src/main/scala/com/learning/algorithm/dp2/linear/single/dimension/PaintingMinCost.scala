@@ -1,4 +1,4 @@
-package com.learning.algorithm.dp2.linear.dimension
+package com.learning.algorithm.dp2.linear.single.dimension
 
 object PaintingMinCost {
 

@@ -1,4 +1,4 @@
-package com.learning.algorithm.dp2.linear.stock
+package com.learning.algorithm.dp2.linear.single.stock
 
 object StockProfit {
 

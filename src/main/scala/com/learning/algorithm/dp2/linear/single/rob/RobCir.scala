@@ -1,4 +1,4 @@
-package com.learning.algorithm.dp2.linear.rob
+package com.learning.algorithm.dp2.linear.single.rob
 
 object RobCir {
 
