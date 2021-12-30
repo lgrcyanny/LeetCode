@@ -30,8 +30,8 @@ object MaxSubArr {
 
   def main(args: Array[String]): Unit = {
     //    val nums = Array(-2, 1, -3, 4, -1, 2, 1, -5, 4)
-    //    val nums = Array(5, 5, -3)
-    val nums = Array(-1, -5, -2, -1)
+        val nums = Array(5, -1, 3)
+//    val nums = Array(-1, -5, -2, -1)
     println(getMaxSubArr(nums))
     println(getMaxSubArrDP(nums))
   }

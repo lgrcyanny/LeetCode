@@ -40,7 +40,7 @@ object EggDrop {
   }
 
   /**
-   * this version is wrong
+   * this version exceed time limit
    */
   def superEggDropV1(K: Int, n: Int): Int = {
     val dp = Array.ofDim[Int](n + 1, K + 1)
@@ -51,11 +51,11 @@ object EggDrop {
     for (i <- 1 to n) {
       dp(i)(1) = i
     }
-    for (i <- 3 to n) {
+    for (i <- 2 to n) {
       for (k <- 2 to K) {
         dp(i)(k) = Int.MaxValue
-        for (f <- 2 to i) {
-          dp(i)(k) = Math.min(Math.max(dp(f - 1)(k - 1), dp(i - f)(k)), dp(i)(k)) + 1
+        for (f <- 1 to i) {
+          dp(i)(k) = Math.min(Math.max(dp(f - 1)(k - 1), dp(i - f)(k)) + 1, dp(i)(k))
         }
       }
     }
@@ -93,8 +93,8 @@ object EggDrop {
 
   def main(args: Array[String]): Unit = {
     println(superEggDrop(2, 6))
-//    println(superEggDropV1(2, 6))
-    println(superEggDropV3(2, 100))
+    println(superEggDropV1(2, 2))
+    println(superEggDropV3(2, 2))
   }
 
 }
