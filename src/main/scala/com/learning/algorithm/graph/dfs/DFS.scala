@@ -1,4 +1,4 @@
-package com.learning.algorithm.graph
+package com.learning.algorithm.graph.dfs
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
@@ -8,26 +8,29 @@ object DFS {
   case class Node(id: Int, children: List[Node] = List.empty) {
     override def hashCode(): Int = id
 
-    override def equals(obj: scala.Any): Boolean = obj match {
-      case n: Node => n.id == this.id
-      case _ => false
+    override def equals(obj: scala.Any): Boolean = {
+      obj match {
+        case n: Node => n.id == this.id
+        case _ => false
+      }
     }
-
     override def toString: String = s"Node$id"
   }
 
   def dfs(node: Node): List[Node] = {
     val visited = new mutable.HashSet[Node]()
+
     def dfsVisit(node: Node): List[Node] = {
-        if (visited.contains(node)) {
-          println(s"already visited: ${node}")
-          Nil
-        } else {
-          visited.add(node)
-          val childNodes = (for (child <- node.children) yield dfsVisit(child)).flatten
-          node :: childNodes
-        }
+      if (visited.contains(node)) {
+        println(s"already visited: ${node}")
+        Nil
+      } else {
+        visited.add(node)
+        val childNodes = (for (child <- node.children) yield dfsVisit(child)).flatten
+        node :: childNodes
+      }
     }
+
     dfsVisit(node)
   }
 
