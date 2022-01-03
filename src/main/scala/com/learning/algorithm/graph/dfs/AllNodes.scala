@@ -6,41 +6,37 @@ import scala.reflect.internal.util.HashSet
 
 object AllNodes {
 
-  def allNodesRecur(graph: Array[Array[Int]]): List[Int] = {
+  def allNodesRecur(graph: Array[Array[Int]], source: Int): List[Int] = {
     val n = graph.size
     val visited = Array.ofDim[Boolean](n)
     val nodes = new ArrayBuffer[Int]()
     def _dfs(node: Int): Unit = {
-      visited(node) = true
-      nodes.append(node)
-      for (next <- graph(node) if !visited(next)) {
+      if (!visited(node)) {
+        visited(node) = true
+        nodes.append(node)
+      }
+      for (next <- graph(node)) {
         _dfs(next)
       }
     }
-    for (i <- 0 until n) {
-      if (!visited(i)) {
-        _dfs(i)
-      }
-    }
+    _dfs(source)
     nodes.toList
   }
 
-  def allNodes(graph: Array[Array[Int]]): List[Int] = {
+  def allNodes(graph: Array[Array[Int]], source: Int): List[Int] = {
     val n = graph.size
     val visited = Array.ofDim[Boolean](n)
     val nodes = new ArrayBuffer[Int]()
     val stack = new mutable.ArrayStack[Int]()
-    for (i <- 0 until n) {
-      if (!visited(i)) {
-        stack.push(i)
-        while (stack.nonEmpty) {
-          val node = stack.pop()
-          nodes.append(node)
-          visited(node) = true
-          for (next <- graph(node) if !visited(next)) {
-            stack.push(next)
-          }
-        }
+    stack.push(source)
+    while (stack.nonEmpty) {
+      val node = stack.pop()
+      if (!visited(node)) {
+        visited(node) = true
+        nodes.append(node)
+      }
+      for (next <- graph(node)) {
+        stack.push(next)
       }
     }
     nodes.toList
@@ -48,14 +44,14 @@ object AllNodes {
 
   def main(args: Array[String]): Unit = {
     val graph = Array(
-      Array[Int](),
-      Array(0, 3),
-      Array(0),
-      Array(2),
-      Array(3)
+      Array(4, 3, 1),
+      Array(3, 2, 4),
+      Array(3),
+      Array(4),
+      Array[Int]()
     )
-    val nodes = allNodes(graph)
-    nodes.foreach(println)
+    val nodes = allNodesRecur(graph, 0)
+    println(nodes.mkString(", "))
   }
 
 }

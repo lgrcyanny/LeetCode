@@ -5,6 +5,9 @@ import scala.collection.mutable.ArrayBuffer
 
 object AllPaths {
 
+  /**
+   * It's a DAG, hence no need of visited table
+   */
   def allPathsSourceTargetRecur(graph: Array[Array[Int]]): List[List[Int]] = {
     val n = graph.size
     val source = 0

@@ -1,4 +1,4 @@
-package com.learning.algorithm.graph
+package com.learning.algorithm.graph.bfs
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
@@ -8,11 +8,12 @@ object BFS {
   case class Node(id: Int, children: List[Node] = List.empty) {
     override def hashCode(): Int = id
 
-    override def equals(obj: scala.Any): Boolean = obj match {
-      case n: Node => n.id == this.id
-      case _ => false
+    override def equals(obj: scala.Any): Boolean = {
+      obj match {
+        case n: Node => n.id == this.id
+        case _ => false
+      }
     }
-
     override def toString: String = s"Node$id"
   }
 
@@ -38,6 +39,7 @@ object BFS {
         result
       }
     }
+
     val visited = new mutable.HashSet[Node]
     val pendingQueue = new mutable.Queue[Node]()
     val result = new mutable.Queue[Node]()
