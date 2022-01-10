@@ -9,7 +9,7 @@ object GraphShortestPath {
     val queue = new mutable.Queue[(Int, Int, Int)]() // identity, mask, distance
     val n = graph.size
     for (i <- 0 until n) {
-      visited.add((i, 1 <<i))
+      visited.add((i, 1 << i))
       queue.enqueue((i, 1 << i, 0))
     }
     var isDone = false
