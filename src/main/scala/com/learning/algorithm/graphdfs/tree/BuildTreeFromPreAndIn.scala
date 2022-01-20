@@ -1,6 +1,6 @@
-package com.learning.algorithm.graph2.tree
+package com.learning.algorithm.graphdfs.tree
 
-import com.learning.algorithm.graph2.tree.BuildTreeFromInAndPost.TreeNode
+import com.learning.algorithm.graphdfs.tree.BuildTreeFromInAndPost.TreeNode
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer

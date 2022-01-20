@@ -1,4 +1,4 @@
-package com.learning.algorithm.graph2.tree
+package com.learning.algorithm.graphdfs.tree
 
 object MaxDepth {
 

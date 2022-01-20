@@ -1,4 +1,4 @@
-package com.learning.algorithm.graph2.tree
+package com.learning.algorithm.graphdfs.tree
 
 object CommonAncestor {
   class TreeNode(_value: Int = 0, _left: TreeNode = null, _right: TreeNode = null) {

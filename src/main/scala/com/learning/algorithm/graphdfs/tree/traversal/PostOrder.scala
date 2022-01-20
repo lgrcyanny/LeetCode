@@ -1,4 +1,4 @@
-package com.learning.algorithm.graph2.tree.traversal
+package com.learning.algorithm.graphdfs.tree.traversal
 
 object PostOrder {
 

@@ -1,6 +1,9 @@
-package com.learning.algorithm.graph2.tree.traversal
+package com.learning.algorithm.graphdfs.tree.traversal
 
-object InOrder {
+import scala.collection.mutable
+import scala.collection.mutable.ArrayBuffer
+
+object PreOrder {
 
   class TreeNode(_value: Int = 0, _left: TreeNode = null, _right: TreeNode = null) {
     var value = _value
@@ -8,9 +11,7 @@ object InOrder {
     var right = _right
   }
 
-  import scala.collection.mutable
-  import scala.collection.mutable.ArrayBuffer
-  def inorderTraversal(root: TreeNode): List[Int] = {
+  def preorderTraversal(root: TreeNode): List[Int] = {
     if (root == null) {
       Nil
     } else {
@@ -30,19 +31,14 @@ object InOrder {
           if (node.right != null)  {
             stack.push((node.right, Go))
           }
-          stack.push((node, AddToResult))
           if (node.left != null)  {
             stack.push((node.left, Go))
           }
+          stack.push((node, AddToResult))
         }
       }
       res.toList
     }
   }
 
-  def main(args: Array[String]): Unit = {
-    val root = new TreeNode(1, null, new TreeNode(2, new TreeNode(3)))
-    val res = preorderTraversal(root)
-    println(res.mkString(", "))
-  }
 }

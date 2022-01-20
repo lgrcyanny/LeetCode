@@ -1,17 +1,16 @@
-package com.learning.algorithm.graph2.tree.traversal
+package com.learning.algorithm.graphdfs.tree.traversal
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
-object PreOrder {
+object PreOrderForN {
 
-  class TreeNode(_value: Int = 0, _left: TreeNode = null, _right: TreeNode = null) {
+  class Node(_value: Int = 0) {
     var value = _value
-    var left = _left
-    var right = _right
+    var children: List[Node] = Nil
   }
 
-  def preorderTraversal(root: TreeNode): List[Int] = {
+  def preorder(root: Node): List[Int] = {
     if (root == null) {
       Nil
     } else {
@@ -21,18 +20,15 @@ object PreOrder {
       }
       import TraversalAction._
       val res = new ArrayBuffer[Int]()
-      val stack = new mutable.ArrayStack[(TreeNode, TraversalAction)]()
+      val stack = new mutable.ArrayStack[(Node, TraversalAction)]()
       stack.push((root, Go))
       while (stack.nonEmpty) {
         val (node, action) = stack.pop()
         if (action == AddToResult) {
           res.append(node.value)
         } else {
-          if (node.right != null)  {
-            stack.push((node.right, Go))
-          }
-          if (node.left != null)  {
-            stack.push((node.left, Go))
+          for (i <- node.children.size - 1 to 0 by -1) {
+            stack.push((node.children(i), Go))
           }
           stack.push((node, AddToResult))
         }
