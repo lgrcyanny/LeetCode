@@ -1,4 +1,4 @@
-package com.learning.algorithm.graphdfs.backtracking
+package com.learning.algorithm.graphdfs.app
 
 object MaxIslandArea {
 
@@ -7,7 +7,9 @@ object MaxIslandArea {
     val n = grid(0).length
     val directions = Array((-1, 0), (0, -1), (0, 1), (1, 0))
     val visited = Array.ofDim[Boolean](m, n)
+
     def _isInArea(i: Int, j: Int): Boolean = (i >= 0 && i < m) && (j >= 0 && j < n)
+
     def _dfs(i: Int, j: Int): Int = {
       visited(i)(j) = true
       var res = 1
@@ -21,6 +23,7 @@ object MaxIslandArea {
       // visited(i)(j) = false, doesn't need, because of max area
       res
     }
+
     var res = 0
     for (i <- 0 until m) {
       for (j <- 0 until n) {
@@ -34,14 +37,14 @@ object MaxIslandArea {
 
   def main(args: Array[String]): Unit = {
     val grid = Array(
-      Array(0,0,1,0,0,0,0,1,0,0,0,0,0),
-      Array(0,0,0,0,0,0,0,1,1,1,0,0,0),
-      Array(0,1,1,0,1,0,0,0,0,0,0,0,0),
-      Array(0,1,0,0,1,1,0,0,1,0,1,0,0),
-      Array(0,1,0,0,1,1,0,0,1,1,1,0,0),
-      Array(0,0,0,0,0,0,0,0,0,0,1,0,0),
-      Array(0,0,0,0,0,0,0,1,1,1,0,0,0),
-      Array(0,0,0,0,0,0,0,1,1,0,0,0,0)
+      Array(0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0),
+      Array(0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0),
+      Array(0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+      Array(0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0),
+      Array(0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0),
+      Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0),
+      Array(0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0),
+      Array(0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0)
     )
     println(maxAreaOfIsland(grid))
   }
