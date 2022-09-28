@@ -10,8 +10,8 @@ object HelloWorld {
   }
 
   def main(args: Array[String]): Unit = {
-    val a = 7
-    println(a.asString())
+    val data = Array(1, 2, 3)
+    println(data.mkString(", "))
   }
 
 }
