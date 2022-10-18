@@ -1,11 +1,11 @@
-package com.learning.algorithm.sort
+package com.learning.algorithm.sort.v1
 
 import scala.collection.mutable.ArrayBuffer
 
 /**
-  * Created by lgrcyanny on 17/8/28.
-  * Insertion sort has better performance than bubblesort
-  */
+ * Created by lgrcyanny on 17/8/28.
+ * Insertion sort has better performance than bubblesort
+ */
 object BubbleSort {
   def sort(xs: ArrayBuffer[Int]) = {
     def swap(m: Int, n: Int) = {
@@ -13,6 +13,7 @@ object BubbleSort {
       xs.update(m, xs(n))
       xs.update(n, t)
     }
+
     var swapped = true
     var j = xs.length
     while (swapped) {

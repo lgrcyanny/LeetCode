@@ -1,8 +1,8 @@
-package com.learning.algorithm.sort
+package com.learning.algorithm.sort.v1
 
 /**
-  * Created by lgrcyanny on 17/8/25.
-  */
+ * Created by lgrcyanny on 17/8/25.
+ */
 object MergeSort {
   // sort but will has stack overflow problem
   def sort(list: List[Int]): List[Int] = {
@@ -10,7 +10,7 @@ object MergeSort {
       (xs, ys) match {
         case (xs, Nil) => xs
         case (Nil, ys) => ys
-        case (x:: xs1, y :: ys1) => {
+        case (x :: xs1, y :: ys1) => {
           if (x < y) {
             x :: merge(xs1, ys)
           } else {
@@ -20,6 +20,7 @@ object MergeSort {
         case _ => throw new RuntimeException("unable to match")
       }
     }
+
     val middle = list.length / 2
     if (middle == 0) {
       list
@@ -39,7 +40,7 @@ object MergeSort {
       (xs, ys) match {
         case (xs, Nil) => xs.reverse ::: sortedBuffer // the sortedBuffer is reverse
         case (Nil, ys) => ys.reverse ::: sortedBuffer
-        case (x:: xs1, y :: ys1) => {
+        case (x :: xs1, y :: ys1) => {
           if (x < y) {
             merge(xs1, ys, x :: sortedBuffer)
           } else {
@@ -49,6 +50,7 @@ object MergeSort {
         case _ => throw new RuntimeException("unable to match")
       }
     }
+
     val middle = list.length / 2
     if (middle == 0) {
       list
@@ -61,8 +63,8 @@ object MergeSort {
   }
 
   /**
-    * merge sort for generic types
-    */
+   * merge sort for generic types
+   */
   def mergeSort[A: Manifest](xs: Array[A])(implicit ord: Ordering[A]) = {
     def internalMerge(a: Array[A], i0: Int, m: Int, iN: Int): Unit = {
       val left = new Array[A](m - i0 + 1)
@@ -114,6 +116,7 @@ object MergeSort {
         internalMerge(a, i0, i0 + m, iN)
       }
     }
+
     internalSort(xs, 0, xs.length - 1)
   }
 

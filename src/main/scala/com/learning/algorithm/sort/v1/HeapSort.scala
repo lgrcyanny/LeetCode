@@ -1,13 +1,15 @@
-package com.learning.algorithm.sort
+package com.learning.algorithm.sort.v1
 
 import scala.collection.mutable.ArrayBuffer
 
 /**
-  * Created by lgrcyanny on 17/8/28.
-  */
+ * Created by lgrcyanny on 17/8/28.
+ */
 object HeapSort {
   def left(i: Int) = 2 * i
+
   def right(i: Int) = 2 * i + 1
+
   def parent(i: Int) = i / 2
 
   def swap(xs: ArrayBuffer[Int], m: Int, n: Int) = {
@@ -52,7 +54,7 @@ object HeapSort {
     // when list is small
     val buffer = new ArrayBuffer[Int]()
     (1 to 10000).map(x => (Math.random() * 1000 + 1).toInt).foreach(x => buffer.append(x))
-//    List(248, 959, 545, 204, 760, 403, 600, 504, 482, 91).foreach(x => buffer.append(x))
+    //    List(248, 959, 545, 204, 760, 403, 600, 504, 482, 91).foreach(x => buffer.append(x))
     println(buffer.toList)
     val time = System.currentTimeMillis()
     heapSort(buffer)

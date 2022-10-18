@@ -1,10 +1,10 @@
-package com.learning.algorithm.sort
+package com.learning.algorithm.sort.v1
 
 import scala.collection.mutable.ArrayBuffer
 
 /**
-  * Created by lgrcyanny on 17/8/28.
-  */
+ * Created by lgrcyanny on 17/8/28.
+ */
 object QuickSort {
 
   def swap(xs: ArrayBuffer[Int], m: Int, n: Int) = {
@@ -34,6 +34,7 @@ object QuickSort {
         sortInternal(pivot + 1, r)
       }
     }
+
     sortInternal(0, xs.length - 1)
   }
 

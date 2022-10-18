@@ -1,10 +1,10 @@
-package com.learning.algorithm.sort
+package com.learning.algorithm.sort.v1
 
 import scala.collection.mutable.ArrayBuffer
 
 /**
-  * Created by lgrcyanny on 17/8/28.
-  */
+ * Created by lgrcyanny on 17/8/28.
+ */
 object InsertionSort {
   def sort(xs: ArrayBuffer[Int]) = {
     var i = 1

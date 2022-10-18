@@ -1,4 +1,4 @@
-package com.learning.algorithm.sort
+package com.learning.algorithm.sort.v1
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -34,6 +34,7 @@ object SimpleQuickSort {
         qsort(middle + 1, r)
       }
     }
+
     qsort(0, xs.length - 1)
   }
 
